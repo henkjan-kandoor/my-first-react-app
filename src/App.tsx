@@ -1,24 +1,23 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import './App.css';
+import { Pokemon, Title } from './components';
+import { Pokemons, PokemonData } from './models';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Welcome to Codaisseur'
-        </a>
-      </header>
+      <main>
+        <Title content="Gonna catch 'em all" />
+        {Pokemons.map((p: PokemonData) => (
+          <Pokemon
+            key={p.name}
+            name={p.name}
+            weight={p.weight}
+            awesome={p.awesome}
+            terrifying={p.terrifying}
+            abilities={p.abilities}
+          />
+        ))}
+      </main>
     </div>
   );
 }
